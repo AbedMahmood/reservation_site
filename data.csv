@@ -1,0 +1,4 @@
+first_name,last_name,email,reservation_type,reservation_date,reservation_time,hash_key
+Diana,Johnson,diana.johnson@example.com,networking,2025-01-05,11:00,olwQCF
+John,Williams,john.williams@example.com,resume_help,2025-01-09,09:00,BVotEY
+Diana,Johnson,diana.johnson@example.com,web_development,2024-12-31,14:00,GRZdoy

@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block body_class %}page-confirm-delete{% endblock %}
+
+{% block content %}
+<div class="confirm-delete">
+    <h1 class="dashboard-title">Confirm Delete?</h1>
+    <form action="{{ url_for('main_bp.delete_reservation_action', hash_key=reservation.hash_key) }}" method="post">
+        <div class="content">
+            <div class="delete-record">
+                <p>{{ reservation.first_name }} {{ reservation.last_name }}</p>
+                <p>{{ reservation.email }}</p>
+                <p>{{ reservation.reservation_type }}</p>
+                <p>{{ reservation.reservation_date }}</p>
+                <p>{{ reservation.reservation_time }}</p>
+                <p>{{ reservation.hash_key }}</p>
+                <button type="submit" class="btn btn-danger">Delete</button>
+            </div>
+        </div>
+    </form>
+</div>
+{% endblock %}

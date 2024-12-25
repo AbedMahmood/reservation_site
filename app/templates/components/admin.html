@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block body_class %}page-admin{% endblock %}
+
+{% block content %}
+<div class="admin-dashboard">
+    <h1 class="dashboard-title">{{ page_title }}</h1>
+
+    <!-- Reservations Grid -->
+    <div class="reservations-grid">
+        {% for reservation in reservations %}
+            <div class="reservation-card">
+                <div class="card-header">
+                    <h3>{{ reservation.first_name }} {{ reservation.last_name }}</h3>
+                    <span class="reservation-type">{{ reservation.reservation_type }}</span>
+                </div>
+                <div class="card-body">
+                    <p><strong>Email:</strong> {{ reservation.email }}</p>
+                    <p><strong>Date:</strong> {{ reservation.reservation_date | datetimeformat('%m-%d-%Y') }}</p>
+                    <p><strong>Time:</strong> {{ reservation.reservation_time }}</p>
+                    <p><strong>Reservation Key:</strong> {{ reservation.hash_key }}</p>
+                    <div class="button-container">
+                        <a href="{{ url_for('main_bp.edit_reservation', hash_key=reservation.hash_key) }}" class="btn btn-primary">Update</a>
+                        <a href="{{ url_for('main_bp.confirm_delete_reservation', hash_key=reservation.hash_key) }}" class="btn btn-danger">Delete</a>
+                    </div>
+                </div>
+            </div>
+        {% else %}
+            <p class="no-reservations">No reservations found.</p>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

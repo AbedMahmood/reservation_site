@@ -1,0 +1,9 @@
+/* cutsom.css */
+@import url('admin.css');
+@import url('base.css');
+@import url('main.css');
+@import url('reserve.css');
+@import url('confirm.css');
+@import url('error.css');
+@import url('edit_reservation.css');
+@import url('delete_reservation.css');
